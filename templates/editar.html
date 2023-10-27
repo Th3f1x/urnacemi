@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atualizar Item</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f1f1f1;
+          margin: 0;
+          padding: 0;
+        }
+        
+        header {
+          background-color: #333;
+          padding: 20px;
+          color: #fff;
+        }
+    
+        main {
+          margin: 20px;
+        }
+    
+        h2 {
+          color: #333;
+        }
+    
+        select {
+          width: 200px;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+    
+        footer {
+          background-color: #333;
+          padding: 10px;
+          color: #fff;
+          text-align: center;
+          font-size: 14px;
+        }
+      </style>
+</head>
+<body>
+    <h1>Atualizar Item</h1>
+    <form method="POST" action="/editar/{{ item.id }}">
+        <label for="candidato">Candidato:</label>
+        <input type="text" id="candidato" name="candidato" value="{{ item.candidato }}" required><br>
+
+        <label for="cod">Código:</label>
+        <textarea id="cod" name="cod" required>{{ item.cod }}</textarea><br>
+
+        <label for="votos">Votos:</label>
+        <textarea id="votos" name="votos" required>{{ item.votos }}</textarea><br>
+
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>

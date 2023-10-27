@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>  
+   
+<title>Cadastro de Objeto</title>
+    
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+
+<body>
+   
+<h1>Cadastro de Objeto</h1>
+   
+<form action="/cadastro" method="POST" enctype="multipart/form-data">
+    
+        <label for="candidato">Candidato:</label>
+        <input type="text" id="candidato" name="candidato" required><br><br>
+        <label for="cod">Código:</label>
+        <textarea id="cod" name="cod" required></textarea><br><br>
+        <label for="foto">Foto:</label>
+        <input type="file" name="foto" required>
+
+       
+        <input type="submit" value="Cadastrar">
+</form>
+</body>
+
+</html>
