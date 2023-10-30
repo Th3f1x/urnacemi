@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import base64, time
 
@@ -6,7 +6,7 @@ import base64, time
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  
 db = SQLAlchemy(app)
-app.secret_key = '1212'
+
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -36,7 +36,7 @@ def votar():
 def vote(item_id):
     
     item = Item.query.get(item_id)
-    time1 = 2
+    time1 = 2 #timer for redirect
 
     if request.method == 'POST':
         item.votos += 1
@@ -60,7 +60,7 @@ def cadastro():
         fotodesc = foto_file.filename
         votos = 0
 
-        file_data = foto_file.read() 
+        file_data = foto_file.read()#converter image file for b64 file
 
         item = Item(candidato=candidato,cod=cod ,votos=votos, foto=file_data, fotodesc=fotodesc)
 
@@ -99,10 +99,12 @@ def visu():
     visu = Item.query.all()
     return render_template('dashboard.html', visu=visu)
 
-@app.template_filter('b64encode')
+@app.template_filter('b64encode')#translater b64 for sql and html
 def b64encode_filter(s):
     return base64.b64encode(s).decode('utf-8')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#@Th3f1x
