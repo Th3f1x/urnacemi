@@ -107,7 +107,7 @@
                 <div class="edit"><img src="data:image/png;base64,{{ item.foto | b64encode }}"></div>
             </div>
             <h3>{{ item.candidato }}</h3>
-            <p>{{ item.cod }}</p>
+            <p>{{ item.desc }}</p>
             <button><a href="/vote/{{ item.id }}">VOTAR</a></button>
         </li>
         {% endfor %}

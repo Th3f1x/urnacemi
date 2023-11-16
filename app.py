@@ -10,14 +10,14 @@ db = SQLAlchemy(app)
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cod = db.Column(db.Integer)
+    desc = db.Column(db.String(1000))
     candidato = db.Column(db.String(100), nullable=False)
     votos = db.Column(db.Integer, default=0)
     foto = db.Column(db.LargeBinary)
     fotodesc = db.Column(db.String(100))
 
-    def __init__(self, candidato, votos,cod,foto, fotodesc):
-        self.cod = cod
+    def __init__(self, candidato, votos,desc,foto, fotodesc):
+        self.desc = desc
         self.candidato = candidato
         self.votos = votos
         self.foto = foto
@@ -56,13 +56,13 @@ def cadastro():
 
         candidato = request.form['candidato']
         foto_file = request.files['foto']
-        cod = request.form['cod']
+        desc = request.form['desc']
         fotodesc = foto_file.filename
         votos = 0
 
         file_data = foto_file.read()#converter image file for b64 file
 
-        item = Item(candidato=candidato,cod=cod ,votos=votos, foto=file_data, fotodesc=fotodesc)
+        item = Item(candidato=candidato,desc=desc ,votos=votos, foto=file_data, fotodesc=fotodesc)
 
         db.create_all()
         db.session.add(item)
@@ -77,7 +77,7 @@ def editar(item_id):
 
     if request.method == 'POST':
         item.candidato = request.form['candidato']
-        item.cod = request.form['cod']
+        item.desc = request.form['desc']
         item.votos = request.form['votos']
         db.session.commit() 
         return redirect('/dashboard')
