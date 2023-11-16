@@ -1,47 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Candidato</title>
     <style>
         body {
-          font-family: Arial, sans-serif;
-          background-color: #A8A8A8;
-          margin: 0;
-          padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #A8A8A8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        header {
-          background-color: #333;
-          padding: 20px;
-          color: #fff;
+
+        h1 {
+            color: #333;
+            padding-top: 20px;
+            font-family: 'Papyrus', sans-serif;
         }
-    
-        main {
-          margin: 20px;
+
+        form {
+            width: 300px;
+            margin: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-    
-        h2 {
-          color: #333;
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-    
-        select {
-          width: 200px;
-          padding: 10px;
-          font-size: 16px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
-    
-        footer {
-          background-color: #333;
-          padding: 10px;
-          color: #fff;
-          text-align: center;
-          font-size: 14px;
+
+        input[type="submit"] {
+            background-color: #218838;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
         }
-      </style>
+
+        input[type="submit"]:hover {
+            background-color: #46b8da;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Atualizar Item</h1>
     <form method="POST" action="/editar/{{ item.id }}">
         <label for="candidato">Candidato:</label>
@@ -55,5 +79,7 @@
 
         <input type="submit" value="Salvar">
     </form>
+
 </body>
+
 </html>

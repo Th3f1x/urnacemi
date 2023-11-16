@@ -1,13 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deletar Candidato</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 30px;
+        }
+
+        input[type="submit"] {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Deletar Item</h1>
-    <p>Você tem certeza que deseja deletar o item "{{ item.nome }}"?</p>
-    <form method="POST" action="/deletar/{{ item.id }}">
-        <input type="submit" value="Deletar">
-    </form>
+
+    <div class="container">
+        <h1>Deletar Item</h1>
+        <p>Você tem certeza que deseja deletar o item "{{ item.candidato }}"?</p>
+
+        <form method="POST" action="/deletar/{{ item.id }}">
+            <input type="submit" value="Deletar">
+        </form>
+    </div>
+
 </body>
+
 </html>
